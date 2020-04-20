@@ -60,8 +60,9 @@ def update_a_show(request, ed):
     detail = Tv_Show.objects.get(id=ed)
     detail.title = request.POST['title']
     detail.network = request.POST['network']
+    detail.release_date = request.POST['release_date']
     detail.descriptions = request.POST['descriptions']
-    all_saved= detail.save()
+    detail.save()
     return redirect(f"/show/{ed}")
 
 def del_show(request, Id):
